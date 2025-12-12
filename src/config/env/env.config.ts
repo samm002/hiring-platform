@@ -79,12 +79,13 @@ export class EnvironmentVariables {
   JWT_RT_EXPIRE!: string;
 }
 
-export function envConfig(options?: DotenvConfigOptions) {
-  const environment =
-    (process.env.NODE_ENV as Environment) || Environment.Development;
+export function currentEnvuronment(): Environment {
+  return (process.env.NODE_ENV as Environment) || Environment.Development;
+}
 
+export function envConfig(options?: DotenvConfigOptions) {
   return config({
-    path: envPaths[environment],
+    path: envPaths[currentEnvuronment()],
     ...options,
   });
 }

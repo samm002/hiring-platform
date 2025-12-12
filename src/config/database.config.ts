@@ -25,7 +25,10 @@ export const databaseConfig = registerAs('database', () => ({
   logging: NODE_ENV === Environment.Development ? true : ['error'], // log all in development,  otherwise only log error
   synchronize: false,
   cache: false,
-  entities: [join(__dirname, '../modules/**/entities/*.entity{.ts,.js}')],
+  entities: [
+    join(__dirname, '../common/**/entities/*.entity{.ts,.js}'),
+    join(__dirname, '../modules/**/entities/*.entity{.ts,.js}'),
+  ],
   migrations: [join(__dirname, '/migrations/*{.ts,.js}')],
   migrationsTableName: 'migrations',
 }));
