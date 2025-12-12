@@ -20,6 +20,11 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@app/*": ["src/app/*"],    // Maps @app/foo -> src/app/foo
+      "@common/*": ["src/common/*"],
+      "@modules/*": ["src/modules/*"]
+    }
   }
 }
